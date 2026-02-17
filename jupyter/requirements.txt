@@ -1,0 +1,20 @@
+numpy
+pillow
+matplotlib
+opencv-python-headless
+scikit-image
+imageio
+
+# data / utilities
+pandas
+scipy
+scikit-learn
+tqdm
+
+# notebook + export
+jupyterlab
+notebook
+ipykernel
+nbconvert
+python-docx
+

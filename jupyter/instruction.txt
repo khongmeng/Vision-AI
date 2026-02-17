@@ -1,0 +1,16 @@
+# Building Docker image
+
+docker build -t vision-ai:seis766 .
+
+
+# Running Docker image
+
+docker run --rm -it --gpus all \
+  -p 8888:8888 \
+  -v /mnt/d/UST/Class/Vision-AI/jupyter:/workspace \
+  vision-ai:seis766
+
+
+# Starting Jupyter Notebook
+
+jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root
