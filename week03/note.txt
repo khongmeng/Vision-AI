@@ -1,0 +1,52 @@
+# bitmap store number in very small (0,1,2,3,..) when load and print it might show all black.
+	> solution: multiply by 50.
+
+# HSV vs RGB
+	> HSV has light information separately, so it is easier to manipulate light.
+	> HSV to RGB to HSV: h=rgb2hsv(img);
+
+	> when there are noise (light reflection on shinny object)
+		+ solutions: morphological
+
+	> adjust brightness
+		+ method1: straightup multiply V-channel from HSV by 2, 3, 5, 7.
+		+ Histogram Equalization: better.
+			- cv2.equalizeHist(image) 
+			- only apply to V-channel
+		+ deep learning: best
+			- require high computational power. 
+			- this is mostly done on augmentation, which not commonly run on GPU (training is run on GPU), because of cost?
+	
+# Object detection
+
+	> bounding box
+		+ rCNN, pre-trained rCNN
+
+
+	> semantic segmentation: classifies each pixel into class
+		+ SAM: Segmenting Anything Model
+
+>>>> "AI is better than human in Biology" by Dr. Chih Lai <<<<
+
+		+ First problem, where are the label comes from.
+			- human label them
+				> matlab tools: Image labeler
+				> VGG Image annotator
+				> LabelMe
+		+ X: Raw image, Y: Label image.
+			- augmentation (resize, rotate, maintain data type) that apply to image from X must be done exactly the same to the that label image in Y.
+			- don't forget NEAREST when processing/augmenting image.
+			- however, augmentation like (blur, noise, histeq) only apply to X.
+			- likewise, augmentation like (cleanup, dynamic labelling) only apply to Y.
+
+		+ X --conv--> Z --transpose conv--> Y
+			- transpose conv
+				> padding: not guarantee that output will have same size as input and hard calculation.
+				> cropping
+		+ when pulling, we lose some information, when decoding, we need that information for reconstructing the output or label image
+			- solution: passing
+			- solution2: atrous (a hole when padding on decoding)
+
+		+ U-Net
+		+ Google DeepLab
+		
