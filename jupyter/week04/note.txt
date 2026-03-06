@@ -1,0 +1,23 @@
+Transfer learning for semantic segemenation
+
+	in samentic segmentation, when we have 3 classes to classify, we would have 3 plane x W x H as a last neuron.
+
+	+ SegNet:
+		
+	
+
+	+ U-Net:
+		> solving issue when reconstructing image, use "skip-connection": pass Feature Map between encoder(E)/decoder(D). 
+		> when convolution happen, it create feature map
+		> "skip-connection" also solve vanishing gradient. the deeper the network, the smaller gradient become.
+
+	+ Google DeepLab V3+:
+		> encoder/decoder architecture
+		> astrous ( space on filter when doing convolution) also known as dilated convolutionalls
+		> help the filter to see a bigger field of view without using pooling
+
+
+	+ Loading and Preprocessing
+		> use DataStore (DS) to pair raw image and label image, split train/val. 
+		> any preprocessing/augmentation must be done the same way to raw image and label image. (except some augmentation like: historis../bright, noise, etc.)
+		> when rotate, make sure use nearest at least for label.
