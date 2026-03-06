@@ -1,0 +1,22 @@
+Week 5 note:
+
+- evaluation/testing of prediction vs label
+	> use IoU over Dice
+
+
+
+- Autoencoder
+
+	>> Application 1
+	> normally when training AI, we need X -> NN -> Y. we should have X and Y and train NN to be able to predict Y from X.
+	> what if we don't have a lot of Y. train X -> NN -> X.
+	> now NN would be able to extract Z of X.
+	> now cut the recontruction part so we have only X -> NN
+	> now attach SoftMax or dense layer: X -> NN -> Classifier
+	> now use the Y that we have to train classifier. X -> NN -> classifier -> Y
+
+
+	>> Application 2: dimensionality reduction
+
+	>> Application 3: train Deep NN 
+	> deep NN requires a lot of data both X and Y. if we have only a few of Y we can't train
