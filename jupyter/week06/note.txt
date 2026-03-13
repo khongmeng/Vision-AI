@@ -1,0 +1,46 @@
+Week 6
+
+AUTO ENCODER
+
+
+- even without Y in (X, NN, Y). with only X we can still do dimensionality reduction.
+
+- when using Auto encoder to train deep network with less data. we must use MSE loss function because we wanna reconstruct. except the last training network which is classification must use cross entropy.
+
+- the activation function should be relu from 4 to 5 (X -> 5 -> 4 -> 5 -> X') and sigmoid or linear from 5 to X'
+
+
+
+- application 4 for Auto Encoder: when we have unbalance data. sometimes use SMOTE, kNN, SVM one-class classification
+
+- application 5 for auto encoder: unsupervised learning.
+
+- application 6 for AE: anomaly detection.
+
+- application 7 for AE: denoise AE (DAE). X -> X + N(noise) -> DAE -> X'
+
+VARIATIONAL AUTOENCODER
+
+- the root of Gen AI
+
+- multiple network.
+
+- multiple input and mix (image + text + ...)
+
+- in previous AE, the middle part of the network, we get Z. but in VAE, we ge a distribution.
+
+- problem of AE:
+	> Z from AE are good for classification but bad for generation. bad in walking in latent space
+	> once trained, AE can only generate the same result, now variation.
+
+- use 2 separated, interdependent: Enc & Dec
+	> Enc: learn to describe dataset X into μ and α. 
+	> Dec: randomly pick μ and α then generate output (close to input)
+- when working on multiple networks, balancing is important (so that one network doesn't eat out the others)
+- ELBO (evidence lower bound) loss = KL loss + rebuild loss = KL loss + MSE
+- KL Divergence/Loss
+
+- each features must have normal distribution
+
+
+- VAE ELBO = beta x KL loss + rebuilt loss
